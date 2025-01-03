@@ -69,7 +69,7 @@ export async function getUser(){
         }
         return null;
     }catch (error){
-        console.error("Failed to get user", error)
+        console.error("failed to get user", error)
         return null;
     }
 }
