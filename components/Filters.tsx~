@@ -12,10 +12,8 @@ const Filters = () => {
         if(category === selectedCategory){
             setSelectedCategory("All");
             router.setParams({filter:"All"});
-            return;
         }else{
             setSelectedCategory(category);
-            router.setParams({filter:category});
         }
     }
 
