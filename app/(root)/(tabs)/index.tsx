@@ -1,20 +1,19 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import {Link} from "expo-router";
+import {EXPO_PUBLIC_APPWRITE_PROJECT_ID} from "@env";
+
 
 
 const index = () => {
+
   return (
     <View style={{
         flex: 1,
         justifyContent:"center",
         alignItems:"center"
     }}>
-      <Text>index</Text>
-      <Text className=" text-green-700 text-2xl font-rubik-extrabold">New piece of text</Text>
-        <Link  href="/sign-in">SignIN </Link>
-        <Link  href="/explore">Explore </Link>
-        <Link  href="/profile">Profile </Link>
+
     </View>
   )
 }

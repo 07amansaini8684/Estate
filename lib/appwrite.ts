@@ -1,11 +1,12 @@
 import {Account, Avatars, Client, OAuthProvider} from "react-native-appwrite";
 import * as Linking from 'expo-linking';
 import {openAuthSessionAsync} from "expo-web-browser";
+import {EXPO_PUBLIC_APPWRITE_PROJECT_ID,EXPO_PUBLIC_APPWRITE_ENDPOINT} from "@env";
 
 export const config = {
     platform : 'com.blue.estate',
-    endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT,
-    projectId : process.env.Expo_PUBLIC_APPWRITE_PROJECT_ID,
+    endpoint: EXPO_PUBLIC_APPWRITE_ENDPOINT,
+    projectId : EXPO_PUBLIC_APPWRITE_PROJECT_ID,
 
 }
 
@@ -22,7 +23,7 @@ export async function login(){
     try{
         const redirectURI= Linking.createURL('/');
         const response = await account.createOAuth2Token(OAuthProvider.Google, redirectURI);
-        console.log("Google_Auth-response", response)
+        // console.log("Google_Auth-response", response)
         if(!response){
             throw new Error("Failed to login || No response")
         }
