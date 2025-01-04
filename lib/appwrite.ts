@@ -51,21 +51,34 @@ export async function login(){
     }
 }
 
-export async function logout(){
-    try{
-        await account.deleteSession('current');
-        return true;
-    }catch (error){
-        console.error("Failed to logout", error)
-        return false;
+export async function logout() {
+    try {
+        // Check if there's an active session
+        const activeSession = await account.getSession('current');
+        if (activeSession) {
+            console.log("Active session found:", activeSession);
+            // Attempt to delete the session
+            await account.deleteSession('current');
+            console.log("Logged out successfully");
+            return true;
+        } else {
+            console.log("No active session to log out from");
+            return false; // No active session to log out from
+        }
+    } catch (error) {
+        // Log the detailed error message if it fails
+        console.error("Failed to logout:", error || error);
+        return false; // Failed to log out
     }
 }
+
+
 
 export async function getUser(){
     try {
         const response = await account.get();
         if(response.$id){
-            const userAvatar = await avatar.getInitials(response.name );
+            const userAvatar = await avatar.getInitials(response.name);
             return {...response, avatar: userAvatar.toString()}
         }
         return null;
