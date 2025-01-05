@@ -8,6 +8,7 @@ import whiteGradient from "@/assets/images/white-gradient.png";
 import map from "@/assets/images/map.png";
 import noResult from "@/assets/images/no-result.png";
 import realAvatar from "@/assets/images/realAvatar.jpeg";
+import splash from "@/assets/images/splash.png";
 
 export default {
   onboarding,
@@ -20,4 +21,5 @@ export default {
   map,
   noResult,
     realAvatar,
+    splash
 };

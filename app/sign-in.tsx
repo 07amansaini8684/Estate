@@ -9,6 +9,8 @@ import {Redirect} from "expo-router";
 
 const SignIn = () => {
 
+    //todo: add admin managemend dashboard... in this application...
+
     const {refetch, loading, isLoggedIn} = useGlobalContext();
 
 

@@ -139,7 +139,6 @@ export const getProperties = async ({filter, query, limit} : {filter: string, qu
         const result = await databases.listDocuments(
             config.databaseId,
             config.propertiesCollectionId,
-            buildQuery
 
         );
         if(!result.documents){
