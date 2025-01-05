@@ -12,6 +12,7 @@ import seed from "@/lib/seed";
 import {useAppwrite} from "@/lib/useAppwrite";
 import {getLatestProperties, getProperties} from "@/lib/appwrite";
 import NoResults from "@/components/NoResults";
+import SkeletonCard from "@/components/Skeleton";
 
 
 
@@ -57,7 +58,11 @@ const Explore = () => {
                 showsVerticalScrollIndicator={false}
                 ListEmptyComponent={
                     loading ? (
-                        <Text>Loading...</Text>
+                        <View>
+                            {Array.from({length: 4}).map((_, index) => (
+                                <SkeletonCard key={index} index={index}/> // Pass index to each skeleton
+                            ))}
+                        </View>
                     ) : (
                         <NoResults />
                     )

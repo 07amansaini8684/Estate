@@ -8,6 +8,7 @@ import images from "@/constants/images"
 import {settings} from "@/constants/data";
 import {useGlobalContext} from "@/lib/golabal-provider";
 import {logout} from "@/lib/appwrite";
+import Skeleton, {SkeletonCard} from "@/components/Skeleton";
 
 interface SettingItemsProps {
     icon: ImageSourcePropType
@@ -102,6 +103,7 @@ const Profile = () => {
                 <View className="flex flex-col mt-5 border-t border-primary-200">
                     <SettingsItem icon={icons.logout} title="Logout" OnPress={handleLogout} textStyle="text-danger" ShowArrow={false} />
                 </View>
+
             </ScrollView>
         </SafeAreaView>
     )

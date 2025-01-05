@@ -12,6 +12,7 @@ import seed from "@/lib/seed";
 import {useAppwrite} from "@/lib/useAppwrite";
 import {getLatestProperties, getProperties} from "@/lib/appwrite";
 import NoResults from "@/components/NoResults";
+import SkeletonLoader, {SkeletonCard} from "@/components/Skeleton";
 
 
 
@@ -46,6 +47,8 @@ const index = () => {
             limit: 6,
         })
     }, [params.filter, params.query]);
+
+    // const loading = true;
     return (
         <SafeAreaView className="bg-whtie -h-full">
             {/*<Button title = "Seed" onPress={seed} />*/}
@@ -59,7 +62,11 @@ const index = () => {
                 showsVerticalScrollIndicator={false}
                 ListEmptyComponent={
                 loading ? (
-                    <Text>Loading...</Text>
+                    <View>
+                        {Array.from({length: 4}).map((_, index) => (
+                            <SkeletonCard key={index} index={index}/> // Pass index to each skeleton
+                        ))}
+                    </View>
                 ) : (
                    <NoResults />
                 )
@@ -115,7 +122,6 @@ const index = () => {
                     </View>
                 }
             />
-
         </SafeAreaView>
     )
 }
